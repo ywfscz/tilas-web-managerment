@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * 部门管理Controller
  */
-@Slf4j
+@Slf4j //自动为当前类生成一个 SLF4J 日志对象
 @RequestMapping("/depts")
 @RestController
 public class DeptController {

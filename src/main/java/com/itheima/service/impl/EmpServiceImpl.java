@@ -70,4 +70,9 @@ public class EmpServiceImpl implements EmpService {
         //2.执行更新操作
         empMapper.update(emp);
     }
+
+    @Override
+    public Emp login(Emp emp) {
+        return empMapper.getByUsernameAndPassword(emp);
+    }
 }
