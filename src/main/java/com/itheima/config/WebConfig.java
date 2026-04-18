@@ -14,6 +14,14 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(loginCheckInterceptor).addPathPatterns("/**").excludePathPatterns("/login");
+        registry.addInterceptor(loginCheckInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns(
+                        "/login",           // 登录接口
+                        "/index.html",      // 首页
+                        "/static/**",       // 静态资源（css、js、图片等）
+                        "/favicon.ico",     // 网站图标
+                        "/error"           // 错误页面
+                );
     }
 }

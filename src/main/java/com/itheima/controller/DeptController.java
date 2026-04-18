@@ -1,5 +1,6 @@
 package com.itheima.controller;
 
+import com.itheima.anno.Log;
 import com.itheima.pojo.Dept;
 import com.itheima.pojo.Result;
 import com.itheima.service.DeptService;
@@ -13,7 +14,7 @@ import java.util.List;
  * 部门管理Controller
  */
 @Slf4j //自动为当前类生成一个 SLF4J 日志对象
-@RequestMapping("/depts")
+@RequestMapping("/api/depts")
 @RestController
 public class DeptController {
 
@@ -35,6 +36,7 @@ public class DeptController {
      * @param id
      * @return
      */
+    @Log
     @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id) {
         log.info("根据id删除部门:{}", id);
@@ -47,6 +49,7 @@ public class DeptController {
      * @param dept
      * @return
      */
+    @Log
     @PostMapping
     public Result add(@RequestBody Dept dept) {
         log.info("添加部门:{}", dept);
@@ -59,6 +62,7 @@ public class DeptController {
      * @param dept
      * @return
      */
+    @Log
     @PutMapping
     public Result update(@RequestBody Dept dept) {
         log.info("更新部门:{}", dept);
@@ -71,6 +75,7 @@ public class DeptController {
      * @param id
      * @return
      */
+    @Log
     @GetMapping("/{id}")
     public Result get(@PathVariable Integer id) {
         log.info("根据id查询部门:{}", id);

@@ -1,5 +1,6 @@
 package com.itheima.controller;
 
+import com.itheima.anno.Log;
 import com.itheima.pojo.Emp;
 import com.itheima.pojo.PageBean;
 import com.itheima.pojo.Result;
@@ -17,7 +18,7 @@ import java.util.List;
  * 员工管理Controller
  */
 @Slf4j
-@RequestMapping("/emps")
+@RequestMapping("/api/emps")
 @RestController
 public class EmpController {
 
@@ -47,6 +48,7 @@ public class EmpController {
      * @param ids
      * @return
      */
+    @Log
     @DeleteMapping("/{ids}")
     public Result delete(@PathVariable List<Integer> ids) {
         log.info("删除员工，ids={}", ids);
@@ -60,6 +62,7 @@ public class EmpController {
      * @param emp
      * @return
      */
+    @Log
     @PostMapping
     public Result save(@RequestBody Emp emp) {
         log.info("新增员工，emp={}", emp);
@@ -88,6 +91,7 @@ public class EmpController {
      * @param emp
      * @return
      */
+    @Log
     @PutMapping
     public Result update(@RequestBody Emp emp) {
         log.info("更新员工，emp={}", emp);
